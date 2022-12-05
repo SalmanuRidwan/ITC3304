@@ -1,12 +1,9 @@
 from pathlib import Path
-import environ
-env = environ.Env()
-environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = False
+DEBUG = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -15,7 +12,6 @@ DEBUG = False
 SECRET_KEY = 'django-insecure-kqa5&5xgji@*@0rk3zi19wy*#k&=@wod2b%4g%ss_%zi%i=o5o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -32,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     
     #   THIRD-PARTY APPS
+    'whitenoise.runserver_nostatic',
     'crispy_forms',
     'allauth',
     'allauth.account',
@@ -45,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -121,6 +119,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
 ]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_ROOT = BASE_DIR/'media'
 MEDIA_URL = '/media/'
