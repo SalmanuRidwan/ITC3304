@@ -7,7 +7,13 @@
   <main>
     <div class="container wow fadeIn">
 
-      <h2 class="my-5 h2 text-center">Checkout form</h2>
+      <h2 class="my-5 h2 text-center">Checkout</h2>
+      <div class="container text-center lead w-50 h-75">
+          <p><b>Account Number: </b>0451616916</p>
+          <p><b>Account Name: </b>Ridwan Salmanu</p>
+        <p><b>Bank Name: </b>GTB</p>
+      </div>
+      <a href="{% url 'core:payment_success' %}" class="btn btn-dark w-100">I've sent the money</a>
 
       <div class="row">
 
@@ -15,7 +21,7 @@
 
           <div class="card">
 
-            <form method="post" class="card-body">
+            <!-- <form method="post" class="card-body">
                 {% csrf_token %}
 
               <div class="md-form mb-5">
@@ -145,7 +151,7 @@
                 <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
               </div>
             </div>
-          </form>
+          </form> -->
 
         </div>
 
