@@ -145,3 +145,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-b4bd.up.railway.app',
+    'https://*.127.0.0.1'
+]
