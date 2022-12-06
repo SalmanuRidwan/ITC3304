@@ -10,6 +10,7 @@ from .views import (
     remove_single_item_from_cart,
     PaymentView,
     success_payment,
+    group_members,
 )
 
 app_name = 'core'
@@ -27,4 +28,5 @@ urlpatterns = [
     ),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('payment-success/', success_payment, name='payment_success'),
+    path('group-members/', group_members, name='group_members'),
 ]

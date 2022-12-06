@@ -172,3 +172,6 @@ def remove_single_item_from_cart(request, slug):
 # @login_required
 def success_payment(request):
     return render(request, 'success_payment.html')
+
+def group_members(request):
+    return render(request, 'group-members.html')
